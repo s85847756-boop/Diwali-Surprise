@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>इस दिवाली, खुशियों का एक पैगाम सिर्फ आपके नाम! | SHIVAM RAI</title>
+
+  <!-- Open Graph / Meta for Social Sharing -->
+  <meta name="title" content="इस दिवाली, खुशियों का एक पैगाम सिर्फ आपके नाम! | SHIVAM RAI" />
+  <meta name="description" content="इस दिवाली, खुशियों का एक पैगाम सिर्फ आपके नाम! खोलिए आपके लिए एक प्यारा-सा दिवाली सरप्राइज़।" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="इस दिवाली, खुशियों का एक पैगाम सिर्फ आपके नाम! | SHIVAM RAI" />
+  <meta property="og:description" content="इस दिवाली, खुशियों का एक पैगाम सिर्फ आपके नाम! खोलिए आपके लिए एक प्यारा-सा दिवाली सरप्राइज़।" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1605649487212-47bdab064df8?auto=format&fit=crop&w=1200&q=80" />
+  <meta name="theme-color" content="#130722" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,500;1,600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ==========================================================================
+       CSS Variables & Theme Tokens (Preserved Exactly)
+       ========================================================================== */
+    :root {
+      --bg-midnight: #0c0517;
+      --bg-plum: #1c0a2a;
+      --card-bg: rgba(26, 12, 38, 0.85);
+      --card-border: rgba(223, 177, 91, 0.35);
+      --card-border-glow: rgba(243, 209, 121, 0.6);
+      --gold-primary: #f3d179;
+      --gold-deep: #dfb15b;
+      --gold-antique: #b98938;
+      --cream-warm: #fff9ef;
+      --cream-muted: #e7d8cb;
+      --pink-soft: #e05688;
+      --diya-orange: #ff7b00;
+      --diya-yellow: #ffdf40;
+      --glow-orange: rgba(255, 123, 0, 0.45);
+      --shadow-elevation: 0 20px 50px rgba(0, 0, 0, 0.65), 0 0 40px rgba(223, 177, 91, 0.12);
+      --radius-lg: 24px;
+      --radius-md: 14px;
+      --radius-sm: 8px;
+      --transition-smooth: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    /* ==========================================================================
+       Base Reset & Global Styles
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at 50% 20%, #290f3c 0%, #160824 50%, var(--bg-midnight) 100%);
+      color: var(--cream-warm);
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 1.5rem 1rem;
+    }
+
+    /* Ambient Festive Radial Glow */
+    body::before {
+      content: "";
+      position: fixed;
+      top: -20%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(224, 86, 136, 0.18) 0%, rgba(243, 209, 121, 0.15) 35%, transparent 70%);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Canvas for Golden Dust / Star Sparkles */
+    #sparkle-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* ==========================================================================
+       Card Wrapper & Layout
+       ========================================================================== */
+    .greeting-wrapper {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 580px;
+      perspective: 1000px;
+      margin: auto;
+    }
+
+    .greeting-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+      box-shadow: var(--shadow-elevation);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      transition: var(--transition-smooth);
+    }
+
+    /* Ornamental Corner Motifs */
+    .corner-motif {
+      position: absolute;
+      width: 32px;
+      height: 32px;
+      opacity: 0.7;
+      pointer-events: none;
+      fill: var(--gold-primary);
+    }
+    .corner-tl { top: 12px; left: 12px; }
+    .corner-tr { top: 12px; right: 12px; transform: rotate(90deg); }
+    .corner-br { bottom: 12px; right: 12px; transform: rotate(180deg); }
+    .corner-bl { bottom: 12px; left: 12px; transform: rotate(270deg); }
+
+    /* Top Mandala Arch */
+    .mandala-header {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 0.5rem auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: rotateSlow 45s linear infinite;
+    }
+
+    .mandala-header svg {
+      width: 100%;
+      height: 100%;
+      fill: url(#gold-grad);
+      filter: drop-shadow(0 0 10px rgba(243, 209, 121, 0.4));
+    }
+
+    /* Subtitle / Pre-title */
+    .festive-sub {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--gold-primary);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Main Greeting Title */
+    .festive-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.65rem, 4.5vw, 2.25rem);
+      font-weight: 700;
+      line-height: 1.35;
+      background: linear-gradient(135deg, #ffffff 10%, var(--gold-primary) 55%, var(--diya-yellow) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1.25rem;
+      word-break: break-word;
+      text-shadow: 0 4px 18px rgba(243, 209, 121, 0.25);
+    }
+
+    /* ==========================================================================
+       Traditional Diya Lamp Component
+       ========================================================================== */
+    .diya-container {
+      position: relative;
+      width: 130px;
+      height: 85px;
+      margin: 0 auto 1.5rem auto;
+    }
+
+    .flame-wrapper {
+      position: absolute;
+      top: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 22px;
+      height: 38px;
+      cursor: pointer;
+    }
+
+    .flame {
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at bottom, var(--diya-yellow) 15%, var(--diya-orange) 65%, rgba(255, 60, 0, 0) 100%);
+      border-radius: 50% 50% 35% 35% / 60% 60% 40% 40%;
+      filter: drop-shadow(0 0 14px var(--diya-orange)) drop-shadow(0 0 24px rgba(255, 180, 0, 0.8));
+      animation: flicker 1.8s ease-in-out infinite alternate;
+      transform-origin: center bottom;
+    }
+
+    .flame-inner {
+      position: absolute;
+      bottom: 4px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 8px;
+      height: 15px;
+      background: #ffffff;
+      border-radius: 50%;
+      filter: blur(1px);
+    }
+
+    .diya-base {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.6));
+    }
+
+    .diya-aura {
+      position: absolute;
+      top: 15px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90px;
+      height: 90px;
+      background: radial-gradient(circle, var(--glow-orange) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: pulseAura 2.5s ease-in-out infinite;
+    }
+
+    /* ==========================================================================
+       View Panels & Transitions
+       ========================================================================== */
+    .view-panel {
+      opacity: 1;
+      transform: scale(1);
+      transition: opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1), transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .view-panel.hidden {
+      display: none !important;
+      opacity: 0;
+      transform: scale(0.96);
+    }
+
+    /* Form Mode */
+    .input-box {
+      margin: 1.5rem 0 1.25rem 0;
+      text-align: left;
+    }
+
+    .text-field {
+      width: 100%;
+      padding: 0.95rem 1.25rem;
+      background: rgba(14, 5, 24, 0.7);
+      border: 1.5px solid rgba(223, 177, 91, 0.4);
+      border-radius: var(--radius-md);
+      color: var(--cream-warm);
+      font-size: 1.05rem;
+      font-family: inherit;
+      outline: none;
+      transition: var(--transition-smooth);
+    }
+
+    .text-field:focus {
+      border-color: var(--gold-primary);
+      box-shadow: 0 0 16px rgba(243, 209, 121, 0.35);
+      background: rgba(18, 7, 30, 0.85);
+    }
+
+    .text-field::placeholder {
+      color: rgba(231, 216, 203, 0.45);
+    }
+
+    .field-hint {
+      display: flex;
+      justify-content: flex-end;
+      font-size: 0.75rem;
+      color: rgba(231, 216, 203, 0.55);
+      margin-top: 0.4rem;
+      padding: 0 0.25rem;
+    }
+
+    /* Greeting Message Content */
+    .greeting-message-container {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: var(--cream-warm);
+      text-align: center;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    .message-line {
+      margin-bottom: 0.65rem;
+      display: block;
+    }
+
+    .emotional-closing-line {
+      font-weight: 600;
+      color: var(--gold-primary);
+      margin-top: 1.25rem;
+      display: block;
+      font-size: 1.08rem;
+    }
+
+    .divider {
+      width: 80px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+      margin: 1.5rem auto;
+    }
+
+    .signature-block {
+      margin-top: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .signature-tag {
+      font-size: 0.9rem;
+      color: var(--gold-primary);
+      letter-spacing: 1px;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .signature-name {
+      font-size: 1.6rem;
+      color: #ffffff;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-family: 'Cinzel Decorative', 'Playfair Display', serif;
+      letter-spacing: 1px;
+    }
+
+    .heart-icon {
+      color: var(--pink-soft);
+      animation: heartbeat 1.5s infinite;
+      display: inline-block;
+    }
+
+    .final-wish-banner {
+      background: rgba(243, 209, 121, 0.1);
+      border: 1px solid rgba(243, 209, 121, 0.3);
+      border-radius: var(--radius-md);
+      padding: 0.85rem 1rem;
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--gold-primary);
+      line-height: 1.5;
+    }
+
+    /* ==========================================================================
+       PAGE 3: Final Surprise Panel Styling
+       ========================================================================== */
+    .surprise-card-inner {
+      background: rgba(17, 7, 26, 0.6);
+      border: 1px solid rgba(243, 209, 121, 0.25);
+      border-radius: var(--radius-md);
+      padding: 1.5rem 1.25rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .surprise-badge {
+      display: inline-block;
+      padding: 0.35rem 1rem;
+      background: linear-gradient(135deg, rgba(243, 209, 121, 0.2), rgba(224, 86, 136, 0.2));
+      border: 1px solid rgba(243, 209, 121, 0.4);
+      border-radius: 50px;
+      font-size: 0.82rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold-primary);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .blessing-triad {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      margin: 1.25rem 0;
+    }
+
+    .blessing-pillar {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(243, 209, 121, 0.2);
+      border-radius: var(--radius-md);
+      padding: 0.75rem 0.5rem;
+      transition: var(--transition-smooth);
+    }
+
+    .blessing-pillar:hover {
+      transform: translateY(-3px);
+      border-color: var(--gold-primary);
+      background: rgba(243, 209, 121, 0.09);
+    }
+
+    .pillar-symbol {
+      font-size: 1.5rem;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .pillar-text {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--gold-primary);
+    }
+
+    .shloka-box {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--cream-warm);
+      margin: 1rem 0;
+      padding: 0.75rem;
+      border-left: 2px solid var(--gold-primary);
+      border-right: 2px solid var(--gold-primary);
+      background: rgba(243, 209, 121, 0.04);
+    }
+
+    /* ==========================================================================
+       Interactive Buttons & Navigation Controls
+       ========================================================================== */
+    .nav-btn-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      width: 100%;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 0.95rem 1.6rem;
+      border-radius: var(--radius-md);
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      border: none;
+      transition: var(--transition-smooth);
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid var(--gold-primary);
+      outline-offset: 3px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #f3d179 0%, #dfb15b 50%, #c48c2c 100%);
+      color: #1a0826;
+      box-shadow: 0 6px 20px rgba(223, 177, 91, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(243, 209, 121, 0.6);
+      filter: brightness(1.08);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--cream-warm);
+      border: 1px solid rgba(243, 209, 121, 0.35);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(243, 209, 121, 0.15);
+      border-color: var(--gold-primary);
+      transform: translateY(-2px);
+      color: #ffffff;
+    }
+
+    /* Sound/Music Toggle Button */
+    .audio-btn {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: rgba(26, 12, 38, 0.65);
+      border: 1px solid rgba(223, 177, 91, 0.35);
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--gold-primary);
+      z-index: 10;
+      transition: var(--transition-smooth);
+    }
+    .audio-btn:hover {
+      transform: scale(1.1);
+      border-color: var(--gold-primary);
+    }
+
+    /* ==========================================================================
+       Notification Toast
+       ========================================================================== */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #1c0a2a;
+      border: 1px solid var(--gold-primary);
+      color: var(--cream-warm);
+      padding: 0.85rem 1.6rem;
+      border-radius: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(243, 209, 121, 0.4);
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.35s ease;
+      z-index: 100;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* ==========================================================================
+       Footer / Branding Info
+       ========================================================================== */
+    footer {
+      margin-top: 1.5rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: rgba(231, 216, 203, 0.6);
+      z-index: 2;
+    }
+
+    footer span {
+      color: var(--gold-primary);
+    }
+
+    /* ==========================================================================
+       Keyframe Animations & Reduced Motion Support
+       ========================================================================== */
+    @keyframes flicker {
+      0% {
+        transform: scale(1) rotate(-1deg);
+        filter: drop-shadow(0 0 14px var(--diya-orange)) drop-shadow(0 0 20px var(--diya-yellow));
+      }
+      25% {
+        transform: scale(1.06, 0.94) rotate(1.5deg);
+      }
+      50% {
+        transform: scale(0.96, 1.04) rotate(-2deg);
+        filter: drop-shadow(0 0 18px var(--diya-orange)) drop-shadow(0 0 28px #ffb300);
+      }
+      75% {
+        transform: scale(1.03, 0.98) rotate(1deg);
+      }
+      100% {
+        transform: scale(1) rotate(-0.5deg);
+        filter: drop-shadow(0 0 15px var(--diya-orange)) drop-shadow(0 0 22px var(--diya-yellow));
+      }
+    }
+
+    @keyframes pulseAura {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+      50% { transform: translate(-50%, -50%) scale(1.3); opacity: 0.9; }
+    }
+
+    @keyframes rotateSlow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.22); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      #sparkle-canvas {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Sparkles Canvas Background -->
+  <canvas id="sparkle-canvas" aria-hidden="true"></canvas>
+
+  <!-- Sound Toggle (Chimes / Festive Ambiance via Web Audio API) -->
+  <button id="audioToggleBtn" class="audio-btn" aria-label="Play sparkle chime audio" title="Play festive chimes">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+      <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+    </svg>
+  </button>
+
+  <!-- SVG Gradient Definitions -->
+  <svg width="0" height="0" class="sr-only" aria-hidden="true" style="position: absolute;">
+    <defs>
+      <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#fff8eb" />
+        <stop offset="40%" stop-color="#f3d179" />
+        <stop offset="100%" stop-color="#b98938" />
+      </linearGradient>
+      <linearGradient id="diya-clay" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#e07238" />
+        <stop offset="50%" stop-color="#a4421b" />
+        <stop offset="100%" stop-color="#5a1e0b" />
+      </linearGradient>
+      <linearGradient id="diya-rim" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#f3d179" />
+        <stop offset="50%" stop-color="#ffb84d" />
+        <stop offset="100%" stop-color="#dfb15b" />
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <main class="greeting-wrapper">
+    <article class="greeting-card">
+      <!-- Decorative Corner Motifs -->
+      <svg class="corner-motif corner-tl" viewBox="0 0 24 24"><path d="M2 2h8v2H4v6H2V2zm18 0v8h-2V4h-6V2h8z"/></svg>
+      <svg class="corner-motif corner-tr" viewBox="0 0 24 24"><path d="M2 2h8v2H4v6H2V2zm18 0v8h-2V4h-6V2h8z"/></svg>
+      <svg class="corner-motif corner-br" viewBox="0 0 24 24"><path d="M2 2h8v2H4v6H2V2zm18 0v8h-2V4h-6V2h8z"/></svg>
+      <svg class="corner-motif corner-bl" viewBox="0 0 24 24"><path d="M2 2h8v2H4v6H2V2zm18 0v8h-2V4h-6V2h8z"/></svg>
+
+      <!-- Center Mandala Accent -->
+      <div class="mandala-header" aria-hidden="true">
+        <svg viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="46" fill="none" stroke="url(#gold-grad)" stroke-width="1.2" stroke-dasharray="3, 3" />
+          <circle cx="50" cy="50" r="36" fill="none" stroke="url(#gold-grad)" stroke-width="1" />
+          <g transform="translate(50,50)">
+            <circle cx="0" cy="-28" r="4" fill="url(#gold-grad)" />
+            <circle cx="20" cy="-20" r="4" fill="url(#gold-grad)" />
+            <circle cx="28" cy="0" r="4" fill="url(#gold-grad)" />
+            <circle cx="20" cy="20" r="4" fill="url(#gold-grad)" />
+            <circle cx="0" cy="28" r="4" fill="url(#gold-grad)" />
+            <circle cx="-20" cy="20" r="4" fill="url(#gold-grad)" />
+            <circle cx="-28" cy="0" r="4" fill="url(#gold-grad)" />
+            <circle cx="-20" cy="-20" r="4" fill="url(#gold-grad)" />
+            <polygon points="0,-22 6,-6 22,0 6,6 0,22 -6,6 -22,0 -6,-6" fill="url(#gold-grad)" opacity="0.6"/>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Glowing Animated Diya -->
+      <div class="diya-container" role="img" aria-label="प्रकाशमान दीप">
+        <div class="diya-aura"></div>
+        <div class="flame-wrapper" id="flameTrigger" title="दीपक को स्पर्श करें">
+          <div class="flame"></div>
+          <div class="flame-inner"></div>
+        </div>
+        <svg class="diya-base" viewBox="0 0 130 52" fill="none">
+          <path d="M12 14C18 36 46 50 65 50C84 50 112 36 118 14C120 8 114 4 106 4C82 7 48 7 24 4C16 4 10 8 12 14Z" fill="url(#diya-clay)" />
+          <ellipse cx="65" cy="14" rx="53" ry="9" fill="url(#diya-rim)" />
+          <ellipse cx="65" cy="14" rx="46" ry="6" fill="#4d1706" />
+          <circle cx="35" cy="18" r="1.5" fill="#fff" opacity="0.8" />
+          <circle cx="50" cy="20" r="1.5" fill="#fff" opacity="0.8" />
+          <circle cx="65" cy="21" r="1.8" fill="#fff" opacity="0.8" />
+          <circle cx="80" cy="20" r="1.5" fill="#fff" opacity="0.8" />
+          <circle cx="95" cy="18" r="1.5" fill="#fff" opacity="0.8" />
+        </svg>
+      </div>
+
+      <!-- Live Region for Screen Readers -->
+      <div id="accessibleLiveRegion" class="sr-only" aria-live="polite" style="position: absolute; left: -9999px;"></div>
+
+      <!-- ================================================================
+           VIEW 1: Welcome Screen (Page 1)
+           ================================================================ -->
+      <section id="createWishPanel" class="view-panel">
+        <h1 class="festive-title">इस दिवाली, खुशियों का एक पैगाम सिर्फ आपके नाम! ❤️</h1>
+
+        <p style="color: var(--cream-muted); font-size: 1rem; line-height: 1.6;">
+          अपना नाम लिखिए और खोलिए आपके लिए एक प्यारा-सा दिवाली सरप्राइज़।
+        </p>
+
+        <form id="wishForm" onsubmit="handleFormSubmit(event)">
+          <div class="input-box">
+            <input
+              type="text"
+              id="recipientName"
+              name="recipientName"
+              class="text-field"
+              placeholder="अपना नाम लिखें"
+              maxlength="40"
+              autocomplete="off"
+              required
+              aria-required="true"
+            />
+            <div class="field-hint">
+              <span id="charCount">0/40</span>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary">
+            <span>✨ मेरा सरप्राइज़ खोलें</span>
+          </button>
+        </form>
+      </section>
+
+      <!-- ================================================================
+           VIEW 2: Personalized Greeting Screen (Page 2)
+           ================================================================ -->
+      <section id="greetingDisplayPanel" class="view-panel hidden">
+        <h1 id="greetingHeading" class="festive-title"></h1>
+
+        <div class="greeting-message-container">
+          <span class="message-line">इस पावन पर्व पर मेरी दिल से यही दुआ है कि आपके जीवन का हर अंधेरा खुशियों की रोशनी में बदल जाए।</span>
+          <span class="message-line">आपके चेहरे की मुस्कान कभी कम न हो,</span>
+          <span class="message-line">आपके सपने एक-एक करके पूरे हों,</span>
+          <span class="message-line">आपके परिवार में हमेशा प्यार और अपनापन बना रहे।</span>
+          <span class="message-line">ज़िंदगी में चाहे कितनी भी मुश्किलें आएँ, उम्मीद का दिया हमेशा जलता रहे।</span>
+          <span class="message-line">आप और आपके परिवार के जीवन में सुख, शांति, समृद्धि और खुशियाँ हमेशा बनी रहें।</span>
+          
+          <span class="emotional-closing-line">✨ क्योंकि आप खास हैं, और आपके लिए मेरी शुभकामनाएँ भी खास हैं!</span>
+        </div>
+
+        <div class="divider" aria-hidden="true"></div>
+
+        <div class="signature-block">
+          <span class="signature-tag">दिल से शुभकामनाओं सहित,</span>
+          <div class="signature-name">
+            SHIVAM RAI <span class="heart-icon" aria-label="love">❤️</span>
+          </div>
+        </div>
+
+        <div class="final-wish-banner">
+          🎆 आपको और आपके पूरे परिवार को दीपावली की हार्दिक शुभकामनाएँ! 🎆
+        </div>
+
+        <!-- Navigation: To Page 3 -->
+        <div class="nav-btn-container">
+          <button id="toSurprisePageBtn" class="btn btn-primary" type="button" aria-label="अगला पेज देखें">
+            <span>अगला पेज →</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           VIEW 3: Final Surprise Experience (Page 3)
+           ================================================================ -->
+      <section id="finalSurprisePanel" class="view-panel hidden">
+        <span class="surprise-badge">✨ दीपोत्सव का विशेष उपहार ✨</span>
+
+        <h2 id="surpriseTitle" class="festive-title" style="font-size: clamp(1.5rem, 4vw, 2rem); margin-bottom: 0.75rem;"></h2>
+
+        <div class="surprise-card-inner">
+          <p style="color: var(--cream-muted); font-size: 0.98rem; line-height: 1.6; margin-bottom: 0.8rem;">
+            यह ज्योति आपके घर में खुशियों का उजाला और माँ लक्ष्मी का आशीर्वाद सदा बनाए रखे।
+          </p>
+
+          <div class="blessing-triad">
+            <div class="blessing-pillar">
+              <span class="pillar-symbol">🪔</span>
+              <span class="pillar-text">सुख</span>
+            </div>
+            <div class="blessing-pillar">
+              <span class="pillar-symbol">✨</span>
+              <span class="pillar-text">समृद्धि</span>
+            </div>
+            <div class="blessing-pillar">
+              <span class="pillar-symbol">🕊️</span>
+              <span class="pillar-text">शांति</span>
+            </div>
+          </div>
+
+          <div class="shloka-box">
+            "दीपक की पावन ज्योति से चमके आपका संसार,<br />
+            सदा बना रहे आपके घर पर ईश्वर का दुलार।"
+          </div>
+
+          <p style="color: var(--gold-primary); font-size: 0.95rem; font-weight: 500; margin-top: 0.85rem;">
+            शुभ दीपावली! आपका हर दिन मंगलमय हो।
+          </p>
+        </div>
+
+        <div class="signature-block" style="margin-bottom: 1.25rem;">
+          <span class="signature-tag">सप्रेम भेंट</span>
+          <div class="signature-name" style="font-size: 1.35rem;">
+            SHIVAM RAI <span class="heart-icon" aria-label="love">❤️</span>
+          </div>
+        </div>
+
+        <!-- Navigation: Back to Page 2 -->
+        <div class="nav-btn-container">
+          <button id="backToGreetingBtn" class="btn btn-secondary" type="button" aria-label="पिछले पेज पर वापस जाएँ">
+            <span>← पिछला पेज</span>
+          </button>
+        </div>
+      </section>
+
+    </article>
+
+    <footer>
+      <p>शुभकामनाएँ प्रेषक: <span>SHIVAM RAI</span></p>
+    </footer>
+  </main>
+
+  <!-- Notification Toast -->
+  <aside id="toastNotice" class="toast" role="status" aria-live="polite">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f3d179" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="20 6 9 17 4 12"></polyline>
+    </svg>
+    <span id="toastMessage"></span>
+  </aside>
+
+  <!-- ==========================================================================
+       Client-Side JavaScript Application Logic
+       ========================================================================== */
+  -->
+  <script>
+    'use strict';
+
+    /* --- DOM Elements --- */
+    const createWishPanel = document.getElementById('createWishPanel');
+    const greetingDisplayPanel = document.getElementById('greetingDisplayPanel');
+    const finalSurprisePanel = document.getElementById('finalSurprisePanel');
+
+    const recipientNameInput = document.getElementById('recipientName');
+    const charCount = document.getElementById('charCount');
+    const greetingHeading = document.getElementById('greetingHeading');
+    const surpriseTitle = document.getElementById('surpriseTitle');
+
+    const toSurprisePageBtn = document.getElementById('toSurprisePageBtn');
+    const backToGreetingBtn = document.getElementById('backToGreetingBtn');
+
+    const toastNotice = document.getElementById('toastNotice');
+    const toastMessage = document.getElementById('toastMessage');
+    const audioToggleBtn = document.getElementById('audioToggleBtn');
+    const flameTrigger = document.getElementById('flameTrigger');
+    const accessibleLiveRegion = document.getElementById('accessibleLiveRegion');
+
+    /* --- Configuration --- */
+    const CONFIG = {
+      maxNameLength: 40,
+      openingTemplate: "आज की यह रोशनी आपके नाम, {NAME}! 🪔",
+      surpriseTemplate: "सदा मुस्कुराते रहें, {NAME}! 🎆"
+    };
+
+    let toastTimeout = null;
+    let currentRecipientName = '';
+    let currentPage = 1;
+
+    /* ==========================================================================
+       Safe Sanitization Helpers
+       ========================================================================== */
+    function sanitizeName(name) {
+      if (!name) return '';
+      return String(name)
+        .trim()
+        .replace(/[\u0000-\u001F\u007F-\u009F]/g, "")
+        .slice(0, CONFIG.maxNameLength);
+    }
+
+    /**
+     * Reads name from URL parameters without redundant decodeURIComponent
+     * because URLSearchParams automatically handles query parameter decoding.
+     */
+    function getNameFromURL() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const rawName = urlParams.get('name');
+      return rawName ? sanitizeName(rawName) : null;
+    }
+
+    function getPageFromURL() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const page = parseInt(urlParams.get('page'), 10);
+      return (page === 2 || page === 3) ? page : null;
+    }
+
+    function buildShareableUrl(name, page = 2) {
+      const url = new URL(window.location.origin + window.location.pathname);
+      if (name) url.searchParams.set('name', name);
+      if (page > 1) url.searchParams.set('page', page.toString());
+      return url.toString();
+    }
+
+    /* ==========================================================================
+       Page Navigation & View Rendering Logic
+       ========================================================================== */
+    /**
+     * Switches view between Page 1, Page 2, and Page 3 reliably.
+     */
+    function showPage(pageNumber, updateHistory = true) {
+      // Validate page
+      if (!currentRecipientName && (pageNumber === 2 || pageNumber === 3)) {
+        pageNumber = 1;
+      }
+
+      currentPage = pageNumber;
+
+      // Hide all panels first
+      createWishPanel.classList.add('hidden');
+      greetingDisplayPanel.classList.add('hidden');
+      finalSurprisePanel.classList.add('hidden');
+
+      if (pageNumber === 1) {
+        createWishPanel.classList.remove('hidden');
+        document.title = "इस दिवाली, खुशियों का एक पैगाम सिर्फ आपके नाम! | SHIVAM RAI";
+        accessibleLiveRegion.textContent = "दिवाली शुभकामना फ़ॉर्म खुला है।";
+        recipientNameInput.value = '';
+        updateCharCount();
+        setTimeout(() => recipientNameInput.focus(), 100);
+
+        if (updateHistory) {
+          const cleanUrl = window.location.origin + window.location.pathname;
+          window.history.pushState({ page: 1, name: '' }, document.title, cleanUrl);
+        }
+      } 
+      else if (pageNumber === 2) {
+        // Page 2: Personalized greeting screen
+        const headline = CONFIG.openingTemplate.replace('{NAME}', currentRecipientName);
+        greetingHeading.textContent = headline;
+        document.title = `${headline} | SHIVAM RAI`;
+        accessibleLiveRegion.textContent = headline;
+
+        greetingDisplayPanel.classList.remove('hidden');
+
+        if (updateHistory) {
+          const newUrl = buildShareableUrl(currentRecipientName, 2);
+          window.history.pushState({ page: 2, name: currentRecipientName }, document.title, newUrl);
+        }
+
+        triggerSparkles(25);
+        playChimeTone(587.33);
+      } 
+      else if (pageNumber === 3) {
+        // Page 3: Final surprise experience screen
+        const surpriseHeadline = CONFIG.surpriseTemplate.replace('{NAME}', currentRecipientName);
+        surpriseTitle.textContent = surpriseHeadline;
+        document.title = `${surpriseHeadline} | SHIVAM RAI`;
+        accessibleLiveRegion.textContent = `विशेष दिवाली उपहार खुला: ${surpriseHeadline}`;
+
+        finalSurprisePanel.classList.remove('hidden');
+
+        if (updateHistory) {
+          const newUrl = buildShareableUrl(currentRecipientName, 3);
+          window.history.pushState({ page: 3, name: currentRecipientName }, document.title, newUrl);
+        }
+
+        triggerSparkles(45);
+        playChimeTone(659.25);
+        setTimeout(() => playChimeTone(880), 160);
+      }
+    }
+
+    function nextPage() {
+      if (currentPage === 2) {
+        showPage(3, true);
+      }
+    }
+
+    function previousPage() {
+      if (currentPage === 3) {
+        showPage(2, true);
+      }
+    }
+
+    function showToast(message) {
+      toastMessage.textContent = message;
+      toastNotice.classList.add('show');
+      if (toastTimeout) clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toastNotice.classList.remove('show');
+      }, 3500);
+    }
+
+    /* ==========================================================================
+       Form & Button Interaction Events
+       ========================================================================== */
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      const enteredName = sanitizeName(recipientNameInput.value);
+
+      if (!enteredName) {
+        recipientNameInput.focus();
+        showToast('कृपया अपना नाम दर्ज करें!');
+        return;
+      }
+
+      currentRecipientName = enteredName;
+      showPage(2, true);
+    }
+
+    function updateCharCount() {
+      const length = recipientNameInput.value.length;
+      charCount.textContent = `${length}/${CONFIG.maxNameLength}`;
+    }
+
+    recipientNameInput.addEventListener('input', updateCharCount);
+
+    // Navigation Button Bindings
+    toSurprisePageBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      nextPage();
+    });
+
+    backToGreetingBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      previousPage();
+    });
+
+    // Browser History Back & Forward support
+    window.addEventListener('popstate', (e) => {
+      const urlName = getNameFromURL();
+      const urlPage = getPageFromURL();
+
+      if (urlName) {
+        currentRecipientName = urlName;
+        showPage(urlPage || 2, false);
+      } else {
+        currentRecipientName = '';
+        showPage(1, false);
+      }
+    });
+
+    /* ==========================================================================
+       Web Audio API - Festive Sparkle Chimes
+       ========================================================================== */
+    let audioCtx = null;
+
+    function initAudio() {
+      if (!audioCtx) {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (AudioContext) audioCtx = new AudioContext();
+      }
+      if (audioCtx && audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+    }
+
+    function playChimeTone(freq = 659.25) {
+      try {
+        initAudio();
+        if (!audioCtx) return;
+
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+
+        gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 1.2);
+
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        osc.start();
+        osc.stop(audioCtx.currentTime + 1.2);
+      } catch (e) {}
+    }
+
+    flameTrigger.addEventListener('click', () => {
+      playChimeTone(783.99);
+      triggerSparkles(40);
+    });
+
+    audioToggleBtn.addEventListener('click', () => {
+      initAudio();
+      const notes = [523.25, 587.33, 659.25, 783.99, 880, 1046.50];
+      notes.forEach((freq, idx) => {
+        setTimeout(() => playChimeTone(freq), idx * 120);
+      });
+      triggerSparkles(35);
+      showToast('🪔 शुभ दीपावली!');
+    });
+
+    /* ==========================================================================
+       Canvas Sparkle & Floating Golden Particles System
+       ========================================================================== */
+    const canvas = document.getElementById('sparkle-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    class Particle {
+      constructor(isBurst = false) {
+        this.reset(isBurst);
+      }
+
+      reset(isBurst = false) {
+        this.x = isBurst ? canvas.width / 2 + (Math.random() * 200 - 100) : Math.random() * canvas.width;
+        this.y = isBurst ? canvas.height / 2 + (Math.random() * 150 - 75) : Math.random() * canvas.height;
+        this.size = Math.random() * 2.8 + 0.8;
+        this.speedX = isBurst ? (Math.random() - 0.5) * 4 : Math.random() * 0.6 - 0.3;
+        this.speedY = isBurst ? (Math.random() - 0.5) * 4 : -Math.random() * 0.7 - 0.2;
+        this.alpha = Math.random() * 0.8 + 0.2;
+        this.fade = Math.random() * 0.012 + 0.004;
+        this.color = Math.random() > 0.4 ? '#f3d179' : (Math.random() > 0.5 ? '#ff9d00' : '#ffffff');
+      }
+
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        this.alpha -= this.fade;
+
+        if (this.alpha <= 0 || this.y < 0) {
+          this.reset(false);
+          this.y = canvas.height + 10;
+        }
+      }
+
+      draw() {
+        ctx.save();
+        ctx.globalAlpha = Math.max(0, this.alpha);
+        ctx.fillStyle = this.color;
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    const particleCount = window.innerWidth < 600 ? 35 : 60;
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new Particle());
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < particles.length; i++) {
+        particles[i].update();
+        particles[i].draw();
+      }
+      requestAnimationFrame(animateParticles);
+    }
+
+    animateParticles();
+
+    function triggerSparkles(count = 25) {
+      for (let i = 0; i < count; i++) {
+        particles.push(new Particle(true));
+      }
+      if (particles.length > 100) {
+        particles.splice(0, particles.length - 75);
+      }
+    }
+
+    /* ==========================================================================
+       Initial Bootstrapping
+       ========================================================================== */
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlName = getNameFromURL();
+      const urlPage = getPageFromURL();
+
+      if (urlName) {
+        currentRecipientName = urlName;
+        // If a valid page number is in URL, navigate directly, else default to Page 2
+        showPage(urlPage || 2, false);
+      } else {
+        showPage(1, false);
+      }
+    });
+  </script>
+</body>
+</html>
